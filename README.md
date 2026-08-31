@@ -40,14 +40,13 @@ A tool that converts the FIMO True Colours mixing leporello into an interactive,
 
 ---
 
-### Project Name
+### Bidgit (budget tracker)
 
-Description.
+A household budget tracker for tracking income and expenses, comparing them against monthly budgets, and visualizing spending through analytics. Built with SvelteKit and Capacitor, using local SQLite storage.
 
-- 🔗 **Live:** [link](#)
-- 💻 **Code:** [link](#)
-- 🎨 **Design:** [link](#)
-- 🛠 **Stack:**
+- 💻 **Code:** [GitHub](https://github.com/deanwmarx/budgit/blob/master/README.md)
+- 🎨 **Design:** [Figma](https://www.figma.com/design/yOLCinkrjXvY4SLYxelc73/Budgit?node-id=2-625&t=GNt9kQBuFzv1wUGU-1)
+- 🛠 **Stack:** Svelte, SvelteKit, TailwindCSS, Capacitor, SQLite
 
 ---
 
