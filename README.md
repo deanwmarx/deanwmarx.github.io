@@ -3,7 +3,7 @@
 ## Frontend Developer  
 Svelte, SvelteKit, React, Next.js, TailwindCSS, Figma
 
-[Email](mailto:deanwmarx@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/) · [GitHub](https://github.com/deanwmarx)
+[LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/) · [GitHub](https://github.com/deanwmarx)
 
 ---
 
