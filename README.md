@@ -56,5 +56,12 @@ Description.
 
 ## About
 
-Short blurb about your background, what you're good at, what you're
-looking for.
+I am a frontend developer with 10 years experience in website and app
+development. I design and prototype in Figma, then build. User
+experience comes first. I focus on making complex tasks simple for the
+user to understand. At UNAFFI, I redesigned the booking journey from
+multiple complicated steps down to three clicks while handling complex
+scheduling variations. Stack: React, Next.js, Svelte 5, SvelteKit,
+TailwindCSS. With some backend knowledge in Node.js, Express, MongoDB.
+I am able to take full ownership of the development lifecycle and
+learn new technologies on demand.
