@@ -1,6 +1,7 @@
 # Dean Marx
 
-Frontend Developer — Svelte, SvelteKit, TailwindCSS, Node.js
+## Frontend Developer  
+Svelte, SvelteKit, React, Next.js, TailwindCSS, Figma
 
 [Email](mailto:deanwmarx@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/) · [GitHub](https://github.com/deanwmarx)
 
