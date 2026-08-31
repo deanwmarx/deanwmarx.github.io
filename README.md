@@ -23,7 +23,7 @@ integration, cross-platform testing (Android/iOS), accessibility,
 performance optimization, SEO, and using Analytics data to inform
 design and product decisions.
 
-- 🔗 **Live:** [sport.unaffi.com](https://sport.unaffi.com)
+- 🔗 **Live:** [UNAFFI Sport](https://sport.unaffi.com)
 - 🛠 **Stack:** Svelte, SvelteKit, TailwindCSS, Node.js, Express,
   MongoDB, Mailgun, Capacitor
 
