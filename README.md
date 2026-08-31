@@ -33,7 +33,7 @@ design and product decisions.
 
 ### FIMO Clay Colour Recipe Generator
 
-A tool that converts the FIMO True Colours mixing leporello into an interactive, human-readable colour recipe generator. Select a target colour, set your total payload weight in grams, and get a precise mixing ratio you can download as an image.
+A tool that converts the FIMO True Colours polymer clay mixing leporello into an interactive, human-readable colour recipe generator. Select a target colour, set your total payload weight in grams, and get a precise mixing ratio you can download as an image.
 
 - 💻 **Code:** [GitHub](https://github.com/deanwmarx/clay-color-recipe-generator)
 - 🛠 **Stack:** Svelte, TailwindCSS, html2canvas-pro
