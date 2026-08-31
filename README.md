@@ -2,7 +2,7 @@
 
 Frontend Developer — Svelte, SvelteKit, TailwindCSS, Node.js
 
-[Email](mailto:deanwmarx@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/)
+[Email](mailto:deanwmarx@gmail.com) · [LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/) · [GitHub](https://github.com/deanwmarx)
 
 ---
 
@@ -23,11 +23,10 @@ integration, cross-platform testing (Android/iOS), accessibility,
 performance optimization, SEO, and using Analytics data to inform
 design and product decisions.
 
-- 🔗 **Live:** [sport.unaffi.com](https://sport.unaffi.com)  
-- 💻 **Code:** [https://github.com/deanwmarx](https://github.com/deanwmarx)  
-- 🎨 **Design:** [Figma](#)  
+- 🔗 **Live:** [sport.unaffi.com](https://sport.unaffi.com)
+- 🎨 **Design:** [Figma](#)
 - 🛠 **Stack:** Svelte 5, SvelteKit, TailwindCSS, Node.js, Express,
-  MongoDB, Mailgun, Capacitor  
+  MongoDB, Mailgun, Capacitor
 
 ---
 
