@@ -26,7 +26,7 @@ design and product decisions.
  🔗  **Live:** [sport.unaffi.com](https://sport.unaffi.com)  
  💻  **Code:** [https://github.com/deanwmarx](https://github.com/deanwmarx)  
  🎨  **Design:** [Figma](#)  
- 🛠  **Stack:** Svelte 5, SvelteKit, TailwindCSS, Node.js, Express,
+ 🛠   **Stack:** Svelte 5, SvelteKit, TailwindCSS, Node.js, Express,
   MongoDB, Mailgun, Capacitor  
 
 ---
