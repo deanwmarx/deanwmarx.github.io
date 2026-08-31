@@ -40,7 +40,7 @@ A tool that converts the FIMO True Colours polymer clay mixing leporello into an
 
 ---
 
-### Bidgit (budget tracker)
+### Budgit (budget tracker)
 
 A household budget tracker for tracking income and expenses, comparing them against monthly budgets, and visualizing spending through analytics. Built with SvelteKit and Capacitor, using local SQLite storage.
 
