@@ -3,7 +3,7 @@
 ## Frontend Developer  
 React, Next.js, Svelte, SvelteKit, TailwindCSS, Figma
 
-[LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/) · [GitHub](https://github.com/deanwmarx)
+[LinkedIn](https://www.linkedin.com/in/dean-marx-886863138/)
 
 ---
 
@@ -26,20 +26,17 @@ design and product decisions.
 
 - 🔗 **Live:** [sport.unaffi.com](https://sport.unaffi.com)
 - 🎨 **Design:** [Figma](#)
-- 🛠 **Stack:** Svelte 5, SvelteKit, TailwindCSS, Node.js, Express,
+- 🛠 **Stack:** Svelte, SvelteKit, TailwindCSS, Node.js, Express,
   MongoDB, Mailgun, Capacitor
 
 ---
 
-### Project Name
+### FIMO Clay Colour Recipe Generator
 
-One or two sentences on what it does and the problem it solves.
-Keep it outcome-focused, not just a tech list.
+A tool that converts the FIMO True Colours mixing leporello into an interactive, human-readable colour recipe generator. Select a target colour, set your total payload weight in grams, and get a precise mixing ratio you can download as an image.
 
-- 🔗 **Live:** [link](#) *(remove if not deployed)*
-- 💻 **Code:** [link](#)
-- 🎨 **Design:** [link](#) *(remove if no Figma)*
-- 🛠 **Stack:** e.g. Svelte, TailwindCSS, Node.js
+- 💻 **Code:** [GitHub](https://github.com/deanwmarx/clay-color-recipe-generator)
+- 🛠 **Stack:** Svelte, TailwindCSS, html2canvas-pro
 
 ---
 
