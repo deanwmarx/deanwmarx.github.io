@@ -25,7 +25,6 @@ performance optimization, SEO, and using Analytics data to inform
 design and product decisions.
 
 - 🔗 **Live:** [sport.unaffi.com](https://sport.unaffi.com)
-- 🎨 **Design:** [Figma](#)
 - 🛠 **Stack:** Svelte, SvelteKit, TailwindCSS, Node.js, Express,
   MongoDB, Mailgun, Capacitor
 
