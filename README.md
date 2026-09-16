@@ -24,7 +24,7 @@ performance optimization, SEO, and using Analytics data to inform
 design and product decisions.
 
 - 🔗 **Live:** [UNAFFI Sport](https://sport.unaffi.com)
-- 🎨 **Design:** [[Figma]([https://www.figma.com/design/yOLCinkrjXvY4SLYxelc73/Budgit?node-id=2-625&t=GNt9kQBuFzv1wUGU-1](https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012&t=70LUjBaMs5lkTDMU-1))](https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012&t=70LUjBaMs5lkTDMU-1)
+- 🎨 **Design:** [[Figma][([https://www.figma.com/design/yOLCinkrjXvY4SLYxelc73/Budgit?node-id=2-625&t=GNt9kQBuFzv1wUGU-1](https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012&t=70LUjBaMs5lkTDMU-1))](https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012&t=70LUjBaMs5lkTDMU-1)](https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012&t=70LUjBaMs5lkTDMU-1)
 - 🛠 **Stack:** Svelte, SvelteKit, TailwindCSS, Node.js, Express,
   MongoDB, Mailgun, Capacitor
 
