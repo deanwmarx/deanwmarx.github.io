@@ -1,4 +1,4 @@
-# Dean Marx - Frontend Developer  
+## Frontend Developer  
 
 React, Next.js, Svelte, SvelteKit, TailwindCSS, Figma
 
