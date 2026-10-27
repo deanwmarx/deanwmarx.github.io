@@ -1,3 +1,4 @@
+import { BlueprintStory } from '../components/blueprint/BlueprintStory'
 import { useStorySnap } from '../hooks/useStorySnap'
 import { Container } from '../components/layout/Container'
 import { SiteHeader } from '../components/layout/SiteHeader'
@@ -9,7 +10,8 @@ import { ProjectsSection } from '../features/projects/components/ProjectsSection
 export function App() {
   useStorySnap()
   return (
-    <div className="min-h-svh">
+    <div className="relative isolate min-h-svh">
+      <BlueprintStory />
       <div id="top" tabIndex={-1} className="h-px" />
       <a className="skip-link" href="#main">Skip to content</a>
       <SiteHeader />

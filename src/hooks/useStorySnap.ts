@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { animate } from 'motion/react'
+import { beginScrollTransition, finishScrollTransition } from '../lib/scroll-transition'
 import { subscribeToScroll, storyDestinationId } from '../lib/scroll'
 
 const transitionDuration = 1.15
@@ -51,6 +52,7 @@ export function useStorySnap() {
     const cancel = () => {
       cancelAnimationFrame(pendingFrame)
       animation?.stop()
+      finishScrollTransition()
       animation = undefined
       animating = false
       wheelTotal = 0
@@ -59,6 +61,7 @@ export function useStorySnap() {
     const transitionTo = (target: number, complete?: () => void) => {
       cancel()
       animating = true
+      beginScrollTransition(transitionDuration)
       update()
       animation = animate(window.scrollY, target, {
         duration: transitionDuration,
@@ -66,6 +69,7 @@ export function useStorySnap() {
         onUpdate: (value) => window.scrollTo({ top: value, behavior: 'instant' }),
         onComplete: () => {
           animating = false
+          finishScrollTransition()
           animation = undefined
           quietUntil = performance.now() + 120
           complete?.()
@@ -145,6 +149,7 @@ export function useStorySnap() {
       root.style.removeProperty('--intro-header-height')
       cancelAnimationFrame(pendingFrame)
       animation?.stop()
+      finishScrollTransition()
       root.classList.remove('story-snap', 'wheel-story')
       window.removeEventListener('wheel', onWheel)
       window.removeEventListener('keydown', cancel)

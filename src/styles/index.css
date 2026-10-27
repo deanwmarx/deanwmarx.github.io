@@ -1,11 +1,19 @@
 @import "tailwindcss" source("../");
 @import "./theme.css";
 
+@font-face {
+  font-family: "Source Code Pro Variable";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("@fontsource-variable/source-code-pro/files/source-code-pro-latin-wght-normal.woff2") format("woff2");
+}
+
 @layer base {
   html {
     background: var(--background);
     color: var(--secondary-foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-source-code-pro), monospace;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -36,8 +44,10 @@
     background: var(--background);
   }
 
-  .hero-title { font-size: clamp(2.65rem, 5.1vw, 5rem); line-height: 1.03; }
-  .section-title { font-size: clamp(1.9rem, 3.3vw, 2.75rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; color: var(--foreground); }
+  .hero-title { font-size: var(--text-heading-1); line-height: 1.1; }
+  .section-title { font-size: var(--text-heading-2); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; color: var(--foreground); }
+  .project-title, .category-title { font-size: var(--text-heading-3); line-height: 1.25; }
+  .eyebrow, .section-label { text-transform: uppercase; }
   .section-label { font-size: 0.75rem; font-weight: 600; color: var(--primary); }
   .section-anchor { scroll-margin-top: 2rem; }
   .project-anchor { scroll-margin-top: 6rem; }
@@ -152,4 +162,21 @@ html.story-snap.wheel-story { scroll-snap-type: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .skills-group, .skills-icon, .skill-name { transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-preview-reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-title { transform: none !important; }
+}
+
+@layer components {
+  .blueprint-story { z-index: -1; color: var(--primary); }
+  .blueprint-story-line { opacity: .42; }
+  .blueprint-story-fragment { stroke-width: .8; opacity: .65; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-story-line { opacity: .2; }
 }

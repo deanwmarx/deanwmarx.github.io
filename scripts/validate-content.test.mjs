@@ -47,3 +47,12 @@ test('multiple project images are rejected', () => checkContent((projects) => {
 test('media paths cannot escape public/images', () => checkContent((projects) => {
   projects[0].media.push({ id: 'unsafe', src: '/images/../../package.json', alt: 'Example', width: 100, height: 100 })
 }, 1))
+
+test('project availability rejects unknown states while accepting the agreed status vocabulary', () => checkContent((projects) => {
+  projects[0].status = 'beta'
+}, 1))
+
+test('availability and editorial context remain separate data', () => checkContent((projects) => {
+  projects[2].status = 'personal-use'
+  projects[2].contextLabel = 'Open-source personal project'
+}, 0))

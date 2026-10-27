@@ -16,7 +16,8 @@ export const projectSchema = {
     headline: text,
     summary: text,
     role: text,
-    status: text,
+    contextLabel: text,
+    status: { enum: ['live', 'ready-to-run', 'in-development', 'prototype', 'personal-use', 'archived'] },
     supportingText: text,
     stack: { type: 'array', minItems: 1, uniqueItems: true, items: text },
     links: {

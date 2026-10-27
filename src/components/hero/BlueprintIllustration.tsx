@@ -41,7 +41,7 @@ export function BlueprintIllustration({ progress, entry }: { progress: MotionVal
       separation.set(1)
     }} onPointerLeave={resetPointer}>
     <svg aria-hidden="true" viewBox="0 0 640 460" fill="none" className="h-auto w-full overflow-visible text-primary">
-      <defs><pattern id="blueprint-grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0v36" stroke="currentColor" strokeWidth=".6" opacity=".14" /></pattern></defs>
+      <defs><pattern id="blueprint-grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0v36" stroke="currentColor" strokeWidth=".6" className="opacity-[.14] lg:opacity-[.32]" /></pattern></defs>
       <g transform="translate(0 55) skewY(-9)">
         <rect width="640" height="370" fill="url(#blueprint-grid)" />
         <m.g style={{ x: backX }}><m.g key={`back-${entry}`} initial={false} animate={{ y: [-travel, 0], opacity: motion && entry ? [.15, .65] : .65 }} transition={{ duration: motion ? duration : 0 }}><BlueprintPanel x={235} y={10} width={310} height={225} /></m.g></m.g>

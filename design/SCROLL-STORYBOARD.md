@@ -231,3 +231,89 @@ Skills double-jump fix: prepare heading/group starting positions on initial moun
 Skills fade simplification: replace all Skills entrance translations and nested row fades with one gradual opacity-only fade per heading/group (850ms first entry, 450ms replay). Wait for 160ms of scroll quiet before starting so it does not compete with anchor navigation or momentum. Enable group/icon hover movement only once the fade finishes. Rows remain fully opaque relative to their group with no separate animation. Earlier multi-stage slide/stagger descriptions are superseded.
 
 Current Skills entrance correction: use one standard combined fade-up per heading/group, opacity 0→1 and translateY 24px→0 over 600ms. Return visits use 12px/400ms. Prepare off-screen, then animate to one settled target; no keyframe reset, nested row animation, or scroll-idle timer. Reduced-motion is immediately opaque with zero translation. This supersedes the opacity-only entrance; the scroll-settle hook was removed.
+
+Typography refinement (Phase 4): use Source Code Pro throughout, matching the CV, with `var(--font-source-code-pro), monospace`. Self-host the Latin variable WOFF2 font with font-display: swap; CSS theme owns font tokens.
+
+Hero typography sizing: size the headline against its text-column width (9cqi, bounded to 24–64px), keeping each phrase on one line at standard desktop and mobile widths with Source Code Pro. Preserve the explicit line break and highlight sweep.
+
+Heading hierarchy refinement: section h2 headings scale from 22–32px, project h3 titles from 18–24px, and skill-category h3 headings from 18–20px. Keep lower levels smaller than the responsive hero; shared CSS classes own these scales.
+
+Desktop project counter: use 12px non-wrapping text to keep “Project · 3 of 3” on one line within the navigation rail. Mobile status retains its existing sizing and wrapping.
+
+Eyebrow typography: all section labels and project-status eyebrows display uppercase through shared CSS, including Featured project, Skills & tools, and Open-source personal project. Keep source content in its natural case.
+
+Continuous-scroll project separators: below 1024px, show a 1px semantic-border divider between adjacent projects. No extra divider before the first project or on the sticky progress strip. Desktop chapter layout remains without project separators. This supersedes the earlier blanket removal of separators.
+
+Shared heading scale trial: CSS theme tokens interpolate consistently from 320px to 1024px: H1 24–48px, H2 20–32px, H3 18–24px. Project and skill-category headings share H3 sizing/1.25 line-height; hero keeps 1.1 line-height and explicit phrase break. Supersedes column-relative H1 and independent category sizing.
+
+Shared-scale verification: widen desktop hero text/image columns to 1.4fr/1fr so the 48px H1 remains two lines at 1024px. Verified one line per phrase at 320px and 390px mobile widths.
+
+Desktop blueprint grid contrast: raise background grid opacity from 14% to 32% at widths >=1024px, keeping thin strokes, existing panel animation, and theme blue. Mobile grid remains unchanged pending a separate design direction.
+
+Project entrance trial: each preview reveals once over 750ms, left-to-right on desktop (>=1024px), bottom-to-top below that breakpoint. Trigger at 20% preview visibility. The image stays still; a 48px blue rule beneath its title draws in synchronously. Shared per-project Motion controls connect title and preview; returning visits stay revealed. Text remains static, reduced motion immediately shows the completed preview/rule.
+
+Project soft-focus revision supersedes clip reveals: enter from above (-24px) on initial load/downward scrolling, from below (+24px) on upward scrolling. Fade opacity 0→1, scale .98→1, desktop blur 4px→0; no mobile blur. First visit 700ms, subsequent visits 500ms. Re-arm only after the full preview leaves view; trigger at 15% visibility. Title rule shares the timing. Reduced motion shows everything immediately.
+
+Project visibility refinement: start the soft-focus entrance at >=35% preview visibility after 120ms without scrolling, so smooth chapter navigation does not consume the animation. Increase travel to 48px, scale .95→1, desktop blur 6px→0, first-entry duration 1000ms/replay 700ms, with a gentler ease. Keep directional entry, full-exit rearming, static text and reduced-motion support.
+
+Project timing correction: start immediately at 35% preview visibility while scrolling continues. Remove scroll-idle scheduling and all entrance timers. Keep the stronger 48px soft-focus entrance, 1000ms first visit/700ms replay, and full-exit rearming. Supersedes the previous scroll-settle delay.
+
+Project/chapter synchronisation: cap preview and title-rule duration to the remaining active section-scroll duration. The scroll controller shares its deadline and completion/cancellation signal; active reveals settle exactly when navigation finishes. Native scrolling keeps the immediate viewport entrance. No delay or per-frame React state.
+
+Project title cleanup: remove decorative blue title rules and their animation/component/CSS. Retain the synchronised directional soft-focus preview entrance.
+
+Project-title pulse trial: stationary H3 text briefly transitions foreground→primary blue→foreground alongside the preview entrance. First visit up to 600ms, replay up to 400ms, capped by remaining reveal duration so it finishes with navigation. No underline, character cascade or layout movement. Reduced motion uses static foreground.
+
+Title pulse correction: remove colour animation entirely. Once section navigation or native scroll ends, a fully visible project title makes one subtle scale pulse 1→1.018→1 over 420ms, retaining its normal text colour. Re-arm on a full title exit; no pulse during scrolling, no layout reflow, no reduced-motion pulse. Preview timing remains synchronised with section navigation.
+
+Title pulse alignment: fit each H3 to its text width (constrained to its column) and scale from its centre. Keep resting text left-aligned; the pulse expands evenly around the title rather than extending only to the right.
+
+## Blueprint guide line — Phase 4 trial
+
+Add a decorative SVG guide line from hero to footer in the outer page gutter. It draws with whole-page scroll progress and retracts on reverse scroll, with a crosshair at the hero, a dimension/interface fragment at Work, a grid at Skills and a finished corner at the footer. Measured section positions drive right-angle route turns; resizing/content changes remeasure geometry. Keep the guide separate from project navigation with no labels/counts/dots. Replace the faint mobile hero illustration; preserve the desktop right-column blueprint. Theme blue at restrained visible contrast, pointer-inert and aria-hidden. Motion values handle scroll drawing without per-frame React state; reduced motion shows a static, quieter drawing.
+
+Blueprint side alternation: hero starts on the left, Work runs down the right, Skills returns left, footer finishes right. Cross-page right-angle connections follow section boundary whitespace/dividers, never pass through copy. SVG geometry spans the page; fragment timings account for horizontal path distance as well as vertical distance.
+
+Blueprint detail refinement: add repeated short 45-degree gutter jogs and distribute measurement ticks, dimension brackets and construction diamonds through longer section runs (roughly every 300px). Preserve alternating sides and cross-page section-boundary connections. Shared route geometry also calculates true diagonal/horizontal path lengths for fragment timing. Details remain decorative, scroll-linked and outside reading areas.
+
+Blueprint viewport correction: replace whole-page percentage drawing with local SVG segment/fragment progress. Each begins drawing at 80% viewport height and completes at 35%, keeping motion visible at mobile and desktop heights. Cross-section connections now vary: stepped bevel at Work, angled shallow notch at Skills, double offset at Footer. Remove standalone Work/Skills/Footer section borders and mobile project dividers; preserve internal skill-group rules and navigation structure. Motion values still avoid per-frame React state; reduced motion remains static.
+
+Blueprint continuity fix: render the guide as one continuous SVG path with a single drawing head. Map measured section/detail positions at 60% viewport height to cumulative path length; preserve on-screen drawing while preventing disconnected segments from appearing ahead. Angles, alternating sides and local fragment drawing remain.
+
+Project availability badges: UNAFFI “Live”, FIMO “Ready to run”, Budgit “Personal use”. Place a compact, static text badge beside the title baseline, wrapping beneath long titles rather than squeezing them. Live uses the blue accent; other states use a quiet neutral surface. Keep editorial context (Featured project/Open-source personal project) separately above the title. JSON `status` uses the optional enum live/ready-to-run/in-development/prototype/personal-use/archived; `contextLabel` holds editorial text. A source-code link does not imply hosted availability. No animated status indicator.
+
+Status alignment refinement: vertically centre the badge with the title rather than aligning their different text baselines. Maintain a 12px horizontal gap and left-align the badge when it wraps beneath a long title.
+
+Blueprint fragment replacement: replace the tall nested dimension bracket with a compact registration square and short side ticks attached to the main route. This mark fades in with scrolling instead of independently drawing its strokes, keeping attention on the continuous guide.
+
+Blueprint motif variation: expand the detail vocabulary to ten construction motifs (ruler ticks, survey target, arc, offset tiles, angle study, diamond, hatch, axes, steps and corner frame). Use varied 250–410px spacing and continue the sequence across sections instead of restarting a three-mark cycle. Replace the tiny registration square with a legible 16px circular survey target and crosshair. All secondary details now fade in as complete shapes, leaving stroke-drawing emphasis on the continuous main route.
+
+Blueprint symbol correction: replace the arrow-axis motif with a small isometric construction tile. Mirror the footer’s nested corner geometry so its vertical edges sit on the right; move the upright checkmark inside the left side of that corner.
+
+Integrated blueprint details: convert all ten in-between motifs into connected route geometry. The single drawing head traverses calibration notches, inspection loops, curved bends, offset chambers, angular folds and stepped runs; no separately fading symbols remain along the section gutters. Preserve the hero/Work/Skills/footer boundary marks and crossings. Path-length timing includes the integrated geometry.
+
+Blueprint composition correction: remove all repeating inline motifs/jogs from the main guide; keep long calm gutter runs and varied cross-section turns. Reintroduce the ten blueprint symbols as separate fade-in details on the opposite outer margin, with varied spacing, size and deterministic outward offsets on wide screens. At mobile widths scale details to fit the reserved gutter; never scatter into content. Section boundary marks remain on the guide. This supersedes integrated line motifs.
+
+Blueprint angle restoration: retain shallow 6px offsets with 45-degree bevels along longer gutter runs, matching the earlier technical-drawing character. Keep the varied section crossings and scattered outer-margin symbols; do not restore symbol-shaped inline excursions or zigzag graph motifs.
+
+Blueprint bend variation: replace the fixed plateau on every run with stable irregular placement, 3–6px depths, differing directions, lengths and occasional two-level shoulders, plus some untouched straight runs. Keep transitions at 45 degrees and constrain all offsets to the outer gutters. Geometry remains deterministic across rerenders; no random reshuffling while scrolling.
+
+Desktop blueprint studies: add sparse larger grid panels, dimensioned interface outlines, isometric constructions and arc studies in the outer margins at >=1024px. Scale them to the actual space outside the content container; alternate placement with varied scroll positions. Use quiet scroll-linked fades and static reduced-motion rendering. Mobile direction remains under review.
+
+Desktop density/mobile simplification: fill desktop outer margins with a denser irregular mix of blueprint studies and small symbols, often on both sides. Vary scale, position and rotation within ±38° so orientation-sensitive details remain readable. Compute safe rotated bounding radii from available gutter width; no overlap with content. Seeded placement stays stable. Below 1024px remove all scattered decorations, keeping only the continuous guide and four section-boundary marks.
+
+Blueprint repetition correction: replace repeated choices from a four-study/ten-symbol library with 32 individually composed blueprint drawings. Shuffle a deck without replacement and stop when exhausted; never repeat a composition on the page. Keep size/rotation/position variation and safe outskirts placement. Mobile selection confirmed: only section-transition connections and boundary marks, with no long vertical gutter guide or scattered decorations below 1024px.
+
+Symbol-library revision: restore the earlier ten lightweight symbols and four original blueprint studies, with six complementary simple symbols, in a reusable 20-asset library. Scatter these with balanced usage rather than a fixed cycle. Repeated assets must be at least 1400px apart vertically and separated by eight other placements. Keep stable irregular rotations/scale and safe outer-margin bounds. Remove the superseded 32-composition library. Mobile remains section-transition details only.
+
+Desktop density increase: expand the restored lightweight library from 20 to 32 symbols, preserving the earlier shapes. Reduce scatter intervals to irregular 75–135px runs and populate both margins more frequently. Keep repeat exclusion (1400px/eight placements), varied safe rotations and explicit collision checks. Mobile remains transition-only.
+
+Hero symbol placement: add two sparse symbols within the desktop right column while preserving its animated blueprint. On mobile, place up to three symbols in measured whitespace above/below the entire copy/CTA block, omitting them if there is insufficient room. Keep non-hero mobile scattering disabled. Replace the raised central section-profile symbol with a bevelled frame. Hero details use the shared symbol library, gentle one-time fades and reduced-motion support.
+
+Responsive desktop scattering refinement: reduce placements on laptop-width screens, with irregular 165–275px intervals and fewer paired left/right symbols. Wider outer margins allow somewhat more placements, but larger drawings reserve extra clear space. Broaden size variation: mostly smaller/medium symbols with occasional full-size accents. Preserve repeat exclusion, safe rotated bounds and collision checks; mobile and hero placement stay unchanged.
+
+Mobile hero detail refinement: remove the survey target, replace its upper-right position with an arc, and add a smaller offset-tile detail above plus a hatched panel below. Show up to five varied symbols only where measured whitespace permits; preserve text/CTA clearance and existing sparse desktop hero details.
+
+Mobile target removal correction: hide the separate hero-start crosshair from the global blueprint layer below 1024px as well as removing the survey-target hero decoration. Mobile hero contains no target/crosshair symbols; desktop start marker remains.
+
+Mobile section-divider simplification: replace all animated guide/transition paths with static straight blue separators at Work, Skills and Footer boundaries. Add only two short irregular clusters of ruler ticks per divider, leaving most of each line clear. Remove all global section symbols below 1024px. Keep the separate decorative mobile hero symbols around the copy. Desktop guide and scattered symbols remain unchanged.

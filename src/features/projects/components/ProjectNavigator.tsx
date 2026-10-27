@@ -17,7 +17,7 @@ export function ProjectNavigator({ projects, selectedId, progress, showProgress 
   return (
     <nav aria-label="Projects" className="project-navigator min-w-0 bg-background py-3 lg:py-0">
       <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-4 gap-y-1 lg:block lg:space-y-2">
-        <p aria-live="polite" aria-atomic="true" className="min-w-0 break-words text-sm font-semibold text-foreground">
+        <p aria-live="polite" aria-atomic="true" className="min-w-0 break-words text-sm font-semibold text-foreground lg:whitespace-nowrap lg:text-xs">
           <span className="lg:hidden">{state.current.navigationLabel ?? state.current.title}</span><span className="hidden lg:inline">Project</span> <span className="font-normal text-muted-foreground">· {state.index + 1} of {state.total}</span>
         </p>
         <p className="text-xs text-muted-foreground lg:hidden">{projectsAheadLabel(state.remaining)}</p>

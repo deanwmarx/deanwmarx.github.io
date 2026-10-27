@@ -37,7 +37,8 @@
       }
     ],
     "supportingText": "Anyone can organise free community activities. Memberships can include service benefits such as free court bookings.",
-    "media": []
+    "media": [],
+    "status": "live"
   },
   {
     "id": "fimo",
@@ -45,7 +46,7 @@
     "title": "FIMO Polymer Clay Colour Recipe Generator",
     "navigationLabel": "FIMO",
     "headline": "From colour inspiration to a precise mixing recipe.",
-    "summary": "Turns the FIMO True Colours mixing guide into a personalised recipe card. Choose a target colour and total clay weight to get precise mixing quantities\u2014removing manual calculations and guesswork, and helping creators reduce waste.",
+    "summary": "Turns the FIMO True Colours mixing guide into a personalised recipe card. Choose a target colour and total clay weight to get precise mixing quantities—removing manual calculations and guesswork, and helping creators reduce waste.",
     "stack": [
       "Svelte",
       "Tailwind CSS",
@@ -58,13 +59,14 @@
       }
     ],
     "highlights": [],
-    "media": []
+    "media": [],
+    "status": "ready-to-run"
   },
   {
     "id": "budgit",
     "template": "generic",
     "title": "Budgit",
-    "status": "Open-source personal project",
+    "status": "personal-use",
     "headline": "A clearer picture of household spending and savings.",
     "summary": "A personal finance app built around how I manage household money. It categorises income and expenses, tracks monthly budgets, and compares projected savings with actual savings after unexpected costs.",
     "stack": [
@@ -99,6 +101,7 @@
       }
     ],
     "supportingText": "Built for my own household finances, and open source for anyone who wants to adapt it to theirs.",
-    "media": []
+    "media": [],
+    "contextLabel": "Open-source personal project"
   }
 ]

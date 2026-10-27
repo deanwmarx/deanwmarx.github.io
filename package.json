@@ -19,6 +19,7 @@
     "test:entrances": "node --test scripts/section-entry.test.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/source-code-pro": "^5.3.1",
     "motion": "^14.6.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

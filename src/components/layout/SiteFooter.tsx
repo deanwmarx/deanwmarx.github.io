@@ -9,7 +9,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-8 pb-8">
       <Container>
-        <div className="flex flex-col gap-8 border-t border-border py-8 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-8 py-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-2"><p className="text-xl font-bold tracking-tight text-foreground">{site.name}</p><p className="text-sm text-muted-foreground">{site.description}</p></div>
           <div className="flex flex-wrap items-center gap-6"><ExternalLink href={site.github}>GitHub</ExternalLink><ActionLink href="#top" direction="up">Back to top</ActionLink></div>
         </div>
