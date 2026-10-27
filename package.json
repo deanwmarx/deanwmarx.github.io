@@ -8,7 +8,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "typecheck": "tsc -b",
     "lint": "oxlint --deny-warnings",
-    "check": "npm run validate:content && npm run test:content && npm run test:projects && npm run test:scroll && npm run test:theme && npm run test:entrances && npm run lint && npm run typecheck",
+    "check": "npm run validate:content && npm run test:content && npm run test:projects && npm run test:previews && npm run test:scroll && npm run test:theme && npm run test:entrances && npm run lint && npm run typecheck",
     "build": "npm run validate:content && tsc -b && vite build",
     "preview": "vite preview",
     "size": "node scripts/report-bundle-size.mjs",
@@ -16,7 +16,8 @@
     "test:projects": "node --test scripts/project-rendering.test.mjs",
     "test:scroll": "node --test scripts/scroll.test.mjs",
     "test:theme": "node --test scripts/theme.test.mjs",
-    "test:entrances": "node --test scripts/section-entry.test.mjs"
+    "test:entrances": "node --test scripts/section-entry.test.mjs",
+    "test:previews": "node --test scripts/preview-geometry.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/source-code-pro": "^5.3.1",

@@ -6,7 +6,7 @@ import { Reveal } from '../motion/Reveal'
 export function SkillsSection() {
   const { target, entry, armed } = useSectionEntry()
   return (
-    <section ref={target} data-entry={entry} id="skills" aria-labelledby="skills-title" className="section-anchor py-14 sm:py-20">
+    <section ref={target} data-entry={entry} id="skills" aria-labelledby="skills-title" className="section-anchor pb-8 pt-14 sm:pb-10 sm:pt-20">
       <Reveal armed={armed} entry={entry} className="mb-10 space-y-3"><p className="section-label">Skills &amp; tools</p><h2 id="skills-title" className="section-title max-w-3xl">The craft behind the interface.</h2></Reveal>
       <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
         {skillGroups.map((group, index) => (

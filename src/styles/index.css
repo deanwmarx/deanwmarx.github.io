@@ -207,3 +207,9 @@ html.story-snap.wheel-story { scroll-snap-type: none; }
   }
   .phone-showcase .phone-showcase-caption { order: 2; min-height: 0; }
 }
+
+/* The portal is outside the preview tree; cover both surfaces and their controls. */
+.preview-trigger, .preview-trigger *, .preview-dialog, .preview-dialog * {
+  -webkit-user-select: none;
+  user-select: none;
+}

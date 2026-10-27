@@ -74,16 +74,12 @@ export function blueprintSeparators(stops: readonly BlueprintStop[], width: numb
   return stops.filter(stop => stop.turnY !== undefined).map(stop => {
     const y = stop.turnY!
     const random = createSeededRandom(stop.kind.charCodeAt(0) * 7919)
-    let d = `M${left} ${y} H${right}`
-    for (const region of [.1, .62]) {
-      const start = left + span * (region + random() * .12)
-      const count = 3 + Math.floor(random() * 3)
-      for (let index = 0; index < count; index++) {
-        const x = start + index * 6
-        const length = index === 0 || index === count - 1 ? 7 : 3 + Math.floor(random() * 3)
-        d += ` M${x} ${y} v${length}`
-      }
-    }
+    const depth = 6 + Math.floor(random() * 5)
+    const direction = random() > .5 ? 1 : -1
+    const start = left + span * (.2 + random() * .3)
+    const end = Math.min(right - depth, start + span * (.18 + random() * .14))
+    // A single continuous offset with 45-degree corners, confined to the separator gap.
+    const d = `M${left} ${y} H${start} L${start + depth} ${y + depth * direction} H${end} L${end + depth} ${y} H${right}`
     return { kind: stop.kind, d }
   })
 }

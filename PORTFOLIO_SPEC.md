@@ -482,3 +482,17 @@ Budgit short-desktop phone height: reduce the allowance slightly from 76svh to 7
 Desktop phone-showcase navigation: add previous/next icon buttons beside the phone at widths ≥768px when multiple views exist. Reuse the existing decoded-image selection flow; wrap from last to first and first to last. Keep labelled selectors and captions synchronised, accessible button names, keyboard focus and 44px targets. Single-image companion phones do not show inactive arrows. Mobile layout remains unchanged.
 
 Budgit automatic views: cycle every five seconds while at least half the showcase is visible. Pause on hover, keyboard focus, hidden tab or open fullscreen dialog; reduced-motion users get manual selection. Provide Pause/Play. Manual view selection stops autoplay until Play is chosen. Reuse decoded-image selection and clean up timers on exit/unmount.
+
+Phase 4 preview maintenance: extract and test zoom/pan bounds, accounting for intrinsic image size on large viewports; clear cancelled pointer tracking; centralise manual showcase selection and name the autoplay interval. Wait for pending image decoding before scheduling another automatic change. Expand preview dispatch for readability. Preserve existing presentation, controls, content and responsive dimensions.
+
+Remove the visible Play/Pause button as requested. Retain five-second automatic cycling, hover/focus/fullscreen/visibility pauses, reduced-motion support, and manual selection stopping autoplay for the mounted showcase. Arrows and labelled selectors remain.
+
+Mobile separators: replace ruler tick clusters with continuous blue separators featuring a shallow offset and 45-degree corners. Vary the offset position, length and direction deterministically between sections. Retain section gap positioning, no mobile drawing animation or symbols; desktop blueprint line stays unchanged.
+
+Mobile footer: compact left-aligned identity, then a full-width action row with GitHub left and Back to top right; copyright and smaller wrapping build credits below. Reduce stacked skills/footer spacing: skills bottom padding 32px, no footer top margin, footer content starts 40px below its boundary. Preserve room for the angled separator and existing desktop layout. No contact information added.
+
+Desktop footer spacing: remove the additional footer top margin and reduce skills bottom padding to 40px; footer content starts 40px below its boundary. Keep desktop layout and blueprint separator clearance, with mobile spacing unchanged.
+
+Header job title: “Frontend Developer | UI/UX Designer”. Keep the existing responsive header presentation.
+
+Preview selection fix: disable text selection throughout browser/phone frames, showcase controls, screenshot triggers and the fullscreen portal, including descendants and WebKit support. Disable native screenshot dragging. Keep double-click zoom, pointer panning, focus and keyboard controls.

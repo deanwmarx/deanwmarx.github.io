@@ -2,7 +2,7 @@ type BrowserChromeProps = { address?: string; title?: string; mobile?: boolean }
 
 /** Decorative browser UI, deliberately independent of the portfolio theme. */
 export function BrowserChrome({ address = 'Preview', title = address, mobile = false }: BrowserChromeProps) {
-  return <div aria-hidden="true" className={`shrink-0 border-b border-[#c8ccd2] bg-[#e8eaed] font-sans text-[#454950] ${mobile ? 'px-1 py-0.5' : 'pt-0.5'}`}>
+  return <div aria-hidden="true" className={`select-none shrink-0 border-b border-[#c8ccd2] bg-[#e8eaed] font-sans text-[#454950] ${mobile ? 'px-1 py-0.5' : 'pt-0.5'}`}>
     {!mobile && <div className="flex h-3.5 items-center gap-1 px-2">
       <div className="mr-2 flex gap-1"><span className="size-1.5 rounded-full bg-[#ed6a5e]" /><span className="size-1.5 rounded-full bg-[#f4bf50]" /><span className="size-1.5 rounded-full bg-[#61c454]" /></div>
       <div className="flex h-full min-w-0 max-w-[60%] items-center gap-1 rounded-t-sm bg-[#f8f9fa] px-2 text-[7px]"><span className="size-1.5 shrink-0 rounded-full bg-[#9aa0a6]" /><span className="truncate">{title}</span><span className="ml-3">×</span></div><span className="text-xs">+</span>

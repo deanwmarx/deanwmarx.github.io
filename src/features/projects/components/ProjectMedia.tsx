@@ -11,11 +11,11 @@ type ProjectMediaProps = {
 
 export function ProjectMedia({ media, label, address, browserTitle }: ProjectMediaProps) {
   return (
-    <figure aria-label={label} className="min-w-0 space-y-3">
+    <figure aria-label={label} className="select-none min-w-0 space-y-3">
       <div className={`flex min-w-0 flex-col overflow-hidden rounded-lg border border-[#b8bcc3] bg-[#f1f2f4] ${media ? '' : 'aspect-[4/3]'}`}>
         <BrowserChrome address={address} title={browserTitle} />
         {media ? (
-          <PreviewViewer {...media}><img src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" decoding="async" className="block h-auto w-full bg-muted" /></PreviewViewer>
+          <PreviewViewer {...media}><img draggable={false} src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" decoding="async" className="block h-auto w-full bg-muted" /></PreviewViewer>
         ) : (
         <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-3 px-5 py-4 text-center">
           <svg aria-hidden="true" className="size-9 text-primary/60" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5">

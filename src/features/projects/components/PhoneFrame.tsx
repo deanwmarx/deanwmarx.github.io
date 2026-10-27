@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 
 export function PhoneFrame({ children, id, busy = false, compact = false }: PropsWithChildren<{ id?: string; busy?: boolean; compact?: boolean }>) {
-  return <div id={id} aria-busy={busy} className={`mx-auto w-full border border-border bg-muted shadow-lg ${compact ? 'rounded-[1rem] p-1' : 'max-w-[16rem] rounded-[1.75rem] p-1.5 md:max-w-[14rem] xl:max-w-[16rem]'}`}>
+  return <div id={id} aria-busy={busy} className={`select-none mx-auto w-full border border-border bg-muted shadow-lg ${compact ? 'rounded-[1rem] p-1' : 'max-w-[16rem] rounded-[1.75rem] p-1.5 md:max-w-[14rem] xl:max-w-[16rem]'}`}>
     <div className={`overflow-hidden bg-device-screen ${compact ? 'rounded-[.75rem]' : 'rounded-[1.3rem]'}`}>
       <div aria-hidden="true" className={`flex items-center justify-between font-medium leading-none text-device-screen-foreground ${compact ? 'h-5 px-1.5 text-[.45rem]' : 'h-7 px-3 text-[.6rem]'}`}>
         <span>9:41</span>

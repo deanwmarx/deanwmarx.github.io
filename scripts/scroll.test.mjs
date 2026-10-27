@@ -145,14 +145,16 @@ test('expanded symbol library keeps distinct shapes and keeps repeats far apart'
   assert.equal(seen.size, 32)
 })
 
-test('mobile separators are static straight rules with sparse ruler ticks', async () => {
+test('mobile separators are continuous angled rules without ruler ticks', async () => {
   const { blueprintSeparators } = await import('../src/lib/blueprint-story.ts')
   const stops = [{ x: 12, y: 100, kind: 'start' }, { x: 359, y: 800, turnY: 784, kind: 'work' }, { x: 12, y: 1600, turnY: 1576, kind: 'skills' }]
   const separators = blueprintSeparators(stops, 375)
   assert.equal(separators.length, 2)
-  assert.ok(separators[0].d.startsWith('M24 784 H351'))
-  assert.ok((separators[0].d.match(/v/g) || []).length >= 6)
-  assert.ok((separators[0].d.match(/v/g) || []).length <= 10)
+  assert.ok(separators[0].d.startsWith('M24 784 H'))
+  assert.ok(separators[0].d.endsWith('H351'))
+  assert.equal((separators[0].d.match(/M/g) || []).length, 1)
+  assert.equal((separators[0].d.match(/L/g) || []).length, 2)
+  assert.equal((separators[0].d.match(/v/g) || []).length, 0)
   assert.notEqual(separators[0].d, separators[1].d)
   assert.deepEqual(separators, blueprintSeparators(stops, 375))
 })
