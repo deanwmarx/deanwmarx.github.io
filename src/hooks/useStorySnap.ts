@@ -78,6 +78,7 @@ export function useStorySnap() {
       })
     }
     const onWheel = (event: WheelEvent) => {
+      if (document.querySelector('dialog[open]')) return
       if (!snapping.matches || reduced.matches || event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return
       root.classList.add('wheel-story')
       if (animating) { event.preventDefault(); return }

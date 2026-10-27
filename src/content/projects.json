@@ -37,8 +37,24 @@
       }
     ],
     "supportingText": "Anyone can organise free community activities. Memberships can include service benefits such as free court bookings.",
-    "media": [],
-    "status": "live"
+    "media": [
+      {
+        "id": "discovery-desktop",
+        "src": "/images/unaffi-discovery-desktop.webp",
+        "alt": "UNAFFI desktop sports discovery screen showing activities, facility booking and memberships, with swimming, golf and tennis listings.",
+        "width": 1600,
+        "height": 803
+      }
+    ],
+    "status": "live",
+    "mobileMedia": {
+      "id": "discovery-mobile",
+      "src": "/images/unaffi-discovery-mobile.webp",
+      "alt": "UNAFFI mobile activities screen with date navigation, activity cards and Explore and Menu navigation.",
+      "width": 640,
+      "height": 1140
+    },
+    "browserAddress": "sport.unaffi.com"
   },
   {
     "id": "fimo",
@@ -46,7 +62,7 @@
     "title": "FIMO Polymer Clay Colour Recipe Generator",
     "navigationLabel": "FIMO",
     "headline": "From colour inspiration to a precise mixing recipe.",
-    "summary": "Turns the FIMO True Colours mixing guide into a personalised recipe card. Choose a target colour and total clay weight to get precise mixing quantities—removing manual calculations and guesswork, and helping creators reduce waste.",
+    "summary": "Turns the FIMO True Colours mixing guide into a personalised recipe card. Choose a target colour and total clay weight to get precise mixing quantities\u2014removing manual calculations and guesswork, and helping creators reduce waste.",
     "stack": [
       "Svelte",
       "Tailwind CSS",
@@ -59,8 +75,18 @@
       }
     ],
     "highlights": [],
-    "media": [],
-    "status": "ready-to-run"
+    "media": [
+      {
+        "id": "recipe-calculator",
+        "src": "/images/fimo-recipe-calculator.webp",
+        "alt": "FIMO True Colours recipe calculator showing colour swatches and a pastel yellow-orange recipe with white, True Yellow and True Red clay quantities and preparation instructions.",
+        "width": 1600,
+        "height": 803
+      }
+    ],
+    "status": "ready-to-run",
+    "browserAddress": "Local preview",
+    "browserTitle": "FIMO True Colours - Recipe Calculator"
   },
   {
     "id": "budgit",
@@ -102,6 +128,106 @@
     ],
     "supportingText": "Built for my own household finances, and open source for anyone who wants to adapt it to theirs.",
     "media": [],
-    "contextLabel": "Open-source personal project"
+    "contextLabel": "Open-source personal project",
+    "showcase": {
+      "type": "phone",
+      "views": [
+        {
+          "id": "overview",
+          "label": "Overview",
+          "src": "/images/budgit-overview.webp",
+          "alt": "Budgit overview screen. Compare projected and actual savings, and see monthly budget progress.",
+          "width": 640,
+          "height": 1255,
+          "caption": "Compare projected and actual savings, and see monthly budget progress."
+        },
+        {
+          "id": "transactions",
+          "label": "Transactions",
+          "src": "/images/budgit-transactions.webp",
+          "alt": "Budgit transactions screen. Track and categorise household income and spending.",
+          "width": 640,
+          "height": 1249,
+          "caption": "Track and categorise household income and spending."
+        },
+        {
+          "id": "budgets",
+          "label": "Budgets",
+          "src": "/images/budgit-budgets.webp",
+          "alt": "Budgit budgets screen. See spending against monthly budget limits.",
+          "width": 640,
+          "height": 1246,
+          "caption": "See spending against monthly budget limits."
+        },
+        {
+          "id": "members",
+          "label": "Members",
+          "src": "/images/budgit-members.webp",
+          "alt": "Budgit members screen. Manage the people sharing household finances.",
+          "width": 640,
+          "height": 1249,
+          "caption": "Manage the people sharing household finances."
+        },
+        {
+          "id": "new-month",
+          "label": "New month",
+          "src": "/images/budgit-new-month.webp",
+          "alt": "Budgit new month screen. Carry fixed expenses and salaries into the next month.",
+          "width": 640,
+          "height": 1260,
+          "caption": "Carry fixed expenses and salaries into the next month."
+        }
+      ]
+    }
+  },
+  {
+    "id": "little-clay-things",
+    "template": "generic",
+    "title": "Little Clay Things",
+    "status": "in-development",
+    "headline": "A custom storefront for handcrafted clay creations.",
+    "summary": "A custom Shopify theme for Little Clay Things, showcasing handmade polymer-clay jewellery, keychains and fridge magnets. Designed in Figma and built with configurable sections and reorderable content blocks, so the store can evolve without rebuilding its pages.",
+    "role": "Design & Shopify theme development",
+    "stack": [
+      "Shopify Liquid",
+      "Tailwind CSS",
+      "Alpine.js",
+      "BlazeSlider"
+    ],
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/deanwmarx/little-clay-things-theme"
+      },
+      {
+        "label": "Figma designs",
+        "href": "https://www.figma.com/design/kSXbta8Vpf3vZ7bJHf3dSU/Little-Clay-Things?node-id=2026-2779"
+      },
+      {
+        "label": "Preview (password required)",
+        "href": "https://little-clay-things-dev.myshopify.com/",
+        "note": "Ask me for the password to access the preview."
+      }
+    ],
+    "highlights": [],
+    "media": [
+      {
+        "id": "storefront",
+        "src": "/images/little-clay-things.webp",
+        "alt": "Little Clay Things storefront with a lavender background, handcrafted polymer-clay products and a Shop the collections button.",
+        "width": 1600,
+        "height": 786
+      }
+    ],
+    "mobileMedia": {
+      "id": "storefront-mobile",
+      "src": "/images/little-clay-things-mobile.webp",
+      "alt": "Little Clay Things mobile storefront showing its logo, handcrafted clay treasures hero, Shop the collections button and Our Collections heading.",
+      "width": 640,
+      "height": 1140
+    },
+    "browserAddress": "little-clay-things-dev.myshopify.com",
+    "mobileBrowser": true,
+    "browserTitle": "Little Clay Things - Shop"
   }
 ]

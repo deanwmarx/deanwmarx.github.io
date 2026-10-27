@@ -317,3 +317,59 @@ Mobile hero detail refinement: remove the survey target, replace its upper-right
 Mobile target removal correction: hide the separate hero-start crosshair from the global blueprint layer below 1024px as well as removing the survey-target hero decoration. Mobile hero contains no target/crosshair symbols; desktop start marker remains.
 
 Mobile section-divider simplification: replace all animated guide/transition paths with static straight blue separators at Work, Skills and Footer boundaries. Add only two short irregular clusters of ruler ticks per divider, leaving most of each line clear. Remove all global section symbols below 1024px. Keep the separate decorative mobile hero symbols around the copy. Desktop guide and scattered symbols remain unchanged.
+
+Blueprint guide weight: increase the desktop continuous guide from 1px to 2px. Keep decorative symbol strokes and mobile separator weights unchanged.
+
+## Additional project — Little Clay Things
+
+Append a generic project after Budgit: custom Shopify theme for handcrafted polymer-clay jewellery, keychains and fridge magnets. Status: In development; not launched. Describe Figma design and merchant-configurable sections/reorderable blocks at a high level. Stack: Shopify Liquid, Tailwind CSS, Alpine.js, BlazeSlider. Retain Code and Figma links plus a clearly labelled password-required development preview. Never store or publish the preview password in content, documentation, source or assets. Use the existing single-image placeholder until imagery is chosen. Ordered JSON drives the new fourth navigation item and all counts. Figma review unavailable due Starter-plan MCP limit; overview verified against the user-supplied README and authenticated storefront preview. Phase 4 remains under refinement; no later phase is started.
+
+Preview access note: Little Clay Things preview link includes “Ask me for the password to access the preview.” Store this as optional link `note` data and render it beneath the relevant link through shared ProjectLinks. No public contact details or password are added.
+
+First project image: use the supplied Little Clay Things storefront screenshot, encoded as a 1600×786 WebP (~78 KiB). Shared ProjectMedia keeps the browser chrome for both real images and placeholders. Display the full screenshot at its natural aspect ratio, without cropping or a second mobile image; retain explicit dimensions, descriptive alt text and lazy loading. Other projects keep their existing browser placeholders.
+
+## Budgit phone showcase — approved exception to single screenshot
+
+Budgit is mobile-only. Replace its browser placeholder with one phone-framed media area and five explicit view buttons: Overview, Transactions, Budgets, Members, New month. Use the five supplied screenshots, compressed to dimensioned WebP assets; preserve complete screens without cropping. Dashboard is the default. Show short capability captions below the phone. Select views with buttons and a 220ms crossfade; no autoplay, swipe interception or scroll-linked screen changes. Keep the old view until the next image decodes; latest click wins, failed loads retain the old view with a retry message. Reduced motion switches immediately. Controls wrap on mobile and retain keyboard focus/pressed state.
+
+Optional JSON `showcase: { type: "phone", views: [...] }` configures this reusable presentation. Views include stable id, label, src, alt, dimensions and caption. A project may use browser media or a phone showcase, never both. Build-time validation checks IDs, assets and paths; browser validation dependencies remain excluded. The ordered project array and overview templates remain shared. All other projects retain their existing single browser-framed preview.
+
+Phone OS framing: shared PhoneFrame adds decorative Android-style chrome outside each app screenshot: static 9:41 time, signal/Wi-Fi/battery indicators above, and back/home/recent-apps icons below. These simulated controls are aria-hidden and noninteractive; app navigation remains untouched. No real device state, notifications or extra timers.
+
+FIMO preview image: use the supplied True Colours recipe calculator screenshot inside the shared browser frame. Preserve the full screenshot, including swatches, weight input, recipe and preparation instructions. Serve a dimensioned 1600px-wide WebP with descriptive alt text and lazy loading.
+
+FIMO screenshot selection: replace the initial pastel-yellow image with the supplied pastel yellow-orange example showing a three-ingredient recipe. Keep the full screenshot and existing browser frame.
+
+UNAFFI responsive preview: show the supplied sports-discovery desktop screenshot in the shared browser frame, with a smaller mobile screenshot overlaid at its lower-right in the shared Android-style phone frame. Preserve both full images and OS chrome; serve dimensioned lazy-loaded WebP assets. Optional `mobileMedia` data configures the reusable device-pair layout, requires one browser image and is incompatible with a phone showcase. Validate both asset paths and IDs at build time. This adds two device views within one preview area without pagination or duplicate mobile markup.
+
+Little Clay Things mobile companion: add the supplied mobile storefront screenshot through `mobileMedia`, using the shared browser/Android-phone device-pair presentation. Keep the full mobile screenshot and existing desktop preview; serve a dimensioned lazy-loaded WebP. No new rendering component is needed.
+
+Browser preview framing: neutral light-grey desktop browser chrome, with tab, window controls, back/forward/reload icons and a noninteractive address bar, independent of the portfolio theme. Little Clay Things mobile adds a compact browser address bar inside its Android phone frame. UNAFFI mobile and Budgit remain app-style OS-only previews. Browser addresses are content data; FIMO is labelled Local preview because it has no public deployment. Decorative chrome is aria-hidden and never acts as navigation.
+
+Compact browser framing: reduce desktop chrome to roughly 37px and mobile browser chrome to 21px, retaining the address bar and browser cues while prioritising screenshot space.
+
+Little Clay Things desktop browser tab title: “Little Clay Things - Shop”. Keep the storefront domain in the separate address bar; optional browserTitle content configures the tab independently.
+
+Fullscreen previews: every screenshot opens a shared native modal dialog with fit-to-screen initial sizing, 1–5× zoom, wheel/pinch zoom, drag pan, double-click zoom/reset, keyboard +/−/0 and arrow panning. Escape/Close dismisses and restores trigger focus; native dialog traps focus and makes the page inert. Lock background scrolling. Show raw screenshots for inspection, without simulated device chrome. Budgit opens the currently selected screenshot. Preserve lazy loading in page previews and add no viewer dependency. Phase 4 refinement.
+
+Preview affordance: shared screenshot trigger shows an expand icon and a subtle 15% black overlay on hover or keyboard-visible focus, with a 200ms colour/opacity transition (instant under reduced motion). Keep the icon visible on touch devices and the zoom cursor on pointer devices.
+
+Preview hover refinement: explicitly layer a centred expand icon and 22% dim overlay above image/animation stacking contexts. Use shared CSS hover/focus-visible selectors; keep a small corner icon on touch.
+
+FIMO desktop browser tab title: “FIMO True Colours - Recipe Calculator”. The address bar retains Local preview.
+
+Budgit mobile showcase: place the wrapping labelled view selector above the phone; cap the whole phone at approximately 55svh by deriving its width from the screenshot ratio and subtracting OS/frame height. Preserve the complete image, tap-to-expand and the caption immediately below. Keep desktop phone/caption/selector ordering and dimensions. Share one selector and phone render across breakpoints.
+
+Budgit mobile sizing refinement: increase the phone height budget from 55svh to 62svh for better readability, retaining the selector above, caption below, full screenshot and desktop dimensions.
+
+Budgit short-desktop layout: at widths ≥768px and viewport heights ≤900px, move the shared selector above the phone and caption below. Bound phone height by 62svh and available viewport space (reserve 340px for header/section offset, controls, caption and gaps; minimum 240px). Tighten showcase gaps to 12px. Taller desktops retain the original larger presentation; mobile sizing remains unchanged.
+
+Budgit laptop sizing correction: keep the selector above the phone, but remove the restrictive viewport-minus-340px budget. Allow the phone approximately 76svh (up to its existing desktop width cap). Prioritise a readable screenshot; the caption may require ordinary scrolling. Mobile dimensions remain unchanged.
+
+Budgit short-desktop caption placement: show selector, then caption, then phone. Keep the larger phone dimensions; the explanation stays beside the controls instead of falling below the viewport. Mobile and tall-desktop ordering remain unchanged.
+
+Budgit short-desktop phone height: reduce the allowance slightly from 76svh to 70svh to bring the bottom of the preview into view. Keep selector/caption above and mobile sizing unchanged.
+
+Desktop phone-showcase navigation: add previous/next icon buttons beside the phone at widths ≥768px when multiple views exist. Reuse the existing decoded-image selection flow; wrap from last to first and first to last. Keep labelled selectors and captions synchronised, accessible button names, keyboard focus and 44px targets. Single-image companion phones do not show inactive arrows. Mobile layout remains unchanged.
+
+Budgit automatic views: cycle every five seconds while at least half the showcase is visible. Pause on hover, keyboard focus, hidden tab or open fullscreen dialog; reduced-motion users get manual selection. Provide Pause/Play. Manual view selection stops autoplay until Play is chosen. Reuse decoded-image selection and clean up timers on exit/unmount.

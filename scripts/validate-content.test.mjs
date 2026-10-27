@@ -56,3 +56,23 @@ test('availability and editorial context remain separate data', () => checkConte
   projects[2].status = 'personal-use'
   projects[2].contextLabel = 'Open-source personal project'
 }, 0))
+
+test('phone showcase rejects duplicate view IDs', () => checkContent(projects => {
+  projects[2].showcase.views[1].id = projects[2].showcase.views[0].id
+}, 1))
+test('phone showcase rejects an empty view list', () => checkContent(projects => {
+  projects[2].showcase.views = []
+}, 1))
+test('phone showcase rejects paths outside public images', () => checkContent(projects => {
+  projects[2].showcase.views[0].src = '/images/../../package.json'
+}, 1))
+test('projects cannot render both a phone showcase and browser media', () => checkContent(projects => {
+  projects[2].media = [projects[3].media[0]]
+}, 1))
+
+test('mobile companion requires a desktop image', () => checkContent(projects => {
+  projects[0].media = []
+}, 1))
+test('mobile companion asset paths are validated', () => checkContent(projects => {
+  projects[0].mobileMedia.src = '/images/../../package.json'
+}, 1))

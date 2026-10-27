@@ -19,7 +19,7 @@ after(async () => { await server?.close() })
 const render = (projects) => renderToStaticMarkup(createElement(ProjectsSection, { projects }))
 
 for (const template of ['generic', 'featured']) {
-  test(`a fourth ${template} JSON entry renders with its own anchor, content and navigation`, () => {
+  test(`an additional ${template} JSON entry renders with its own anchor, content and navigation`, () => {
     const added = {
       id: 'fourth-project', template, title: 'Fourth project', headline: 'A useful product.',
       summary: 'A distinct product overview.', stack: ['React'],
@@ -27,19 +27,19 @@ for (const template of ['generic', 'featured']) {
       highlights: [], media: [],
     }
     const html = render([...original, added])
-    assert.equal((html.match(/<article /g) || []).length, 4)
+    assert.equal((html.match(/<article /g) || []).length, original.length + 1)
     assert.match(html, /id="project-fourth-project"/)
     assert.match(html, /href="#project-fourth-project"/)
     assert.match(html, /A distinct product overview/)
-    assert.match(html, /1 of 4/)
-    assert.match(html, /3 projects ahead/)
+    assert.ok(html.includes(`1 of ${original.length + 1}`))
+    assert.ok(html.includes(`${original.length} projects ahead`))
     assert.match(html, /https:\/\/github.com\/example\/fourth/)
     assert.equal(getProjectNavigation([...original, added], added.id).remaining, 0)
   })
 }
 
 test('real media retains dimensions, alternative text and lazy loading; optional content can be empty', () => {
-  const project = { ...original[1], role: undefined, status: undefined, supportingText: undefined, links: [], highlights: [], media: [{ id: 'preview', src: '/images/example.webp', alt: 'Example recipe output', width: 800, height: 600 }] }
+  const project = { ...original[1], role: undefined, status: undefined, showcase: undefined, supportingText: undefined, links: [], highlights: [], media: [{ id: 'preview', src: '/images/example.webp', alt: 'Example recipe output', width: 800, height: 600 }] }
   const html = render([project])
   assert.match(html, /alt="Example recipe output"/)
   assert.match(html, /width="800" height="600" loading="lazy"/)
@@ -57,9 +57,9 @@ test('featured capabilities retain both discovery and business management withou
 test('counts and anchors remain correct when reordered, removed, or given an unknown selection', () => {
   const reversed = [...original].reverse()
   const state = getProjectNavigation(reversed, original[0].id)
-  assert.equal(state.index, 2)
+  assert.equal(state.index, original.length - 1)
   assert.equal(state.remaining, 0)
-  assert.equal(state.items[2].href, `#project-${original[0].id}`)
+  assert.equal(state.items[original.length - 1].href, `#project-${original[0].id}`)
   assert.equal(getProjectNavigation(original, 'unknown').index, 0)
   assert.equal(getProjectNavigation([], 'unknown'), null)
   assert.equal(projectsAheadLabel(1), '1 project ahead')
@@ -70,8 +70,9 @@ test('counts and anchors remain correct when reordered, removed, or given an unk
 test('every template renders exactly one project preview across static fallbacks', () => {
   for (const project of original) {
     const html = render([project])
-    assert.equal((html.match(/<figure /g) || []).length, 1)
-    assert.equal((html.match(/Project imagery to be selected/g) || []).length, 1)
+    assert.equal((html.match(/<figure /g) || []).length, project.mobileMedia ? 2 : 1)
+    assert.equal((html.match(/Project imagery to be selected/g) || []).length, project.media.length || project.showcase ? 0 : 1)
+    assert.equal((html.match(/<img /g) || []).length, project.showcase ? 1 : project.media.length + (project.mobileMedia ? 1 : 0))
   }
 })
 
@@ -83,4 +84,37 @@ test('project external links open in new tabs with safe relationships and a read
     assert.equal((html.match(/opens in a new tab/g) || []).length, project.links.length)
     assert.doesNotMatch(html, /href="#project-[^"]+" target="_blank"/)
   }
+})
+
+test('Little Clay Things is in development with source, designs and a gated preview', () => {
+  const project = original.find(project => project.id === 'little-clay-things')
+  assert.ok(project)
+  const html = render([project])
+  assert.match(html, /In development/)
+  assert.match(html, /Preview \(password required\)/)
+  assert.match(html, /Ask me for the password to access the preview/ )
+  assert.match(html, /Shopify Liquid/)
+  assert.match(html, /little-clay-things-theme/)
+  assert.doesNotMatch(html, /Live site/)
+})
+
+test('phone showcase renders one initial screen and accessible explicit view selectors', () => {
+  const project = original.find(project => project.id === 'budgit')
+  const html = render([project])
+  assert.equal((html.match(/<figure /g) || []).length, 1)
+  assert.equal((html.match(/<img /g) || []).length, 1)
+  assert.equal((html.match(/aria-pressed="true"/g) || []).length, 1)
+  assert.equal((html.match(/aria-pressed="false"/g) || []).length, 4)
+  assert.match(html, /Budgit preview views/)
+  assert.match(html, /budgit-overview.webp/)
+  assert.doesNotMatch(html, /Project imagery to be selected/)
+})
+
+test('UNAFFI presents desktop and mobile screenshots with simulated phone chrome', () => {
+  const html = render([original[0]])
+  assert.match(html, /UNAFFI desktop and mobile previews/)
+  assert.match(html, /unaffi-discovery-desktop.webp/)
+  assert.match(html, /unaffi-discovery-mobile.webp/)
+  assert.match(html, /9:41/)
+  assert.equal((html.match(/<img /g) || []).length, 2)
 })

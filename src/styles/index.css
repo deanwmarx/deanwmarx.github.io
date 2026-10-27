@@ -174,9 +174,36 @@ html.story-snap.wheel-story { scroll-snap-type: none; }
 
 @layer components {
   .blueprint-story { z-index: -1; color: var(--primary); }
-  .blueprint-story-line { opacity: .42; }
+  .blueprint-story-line { stroke-width: 2px; opacity: .42; }
   .blueprint-story-fragment { stroke-width: .8; opacity: .65; }
 }
 @media (prefers-reduced-motion: reduce) {
   .blueprint-story-line { opacity: .2; }
+}
+
+/* Keep the affordance above image transforms and animated screenshot layers. */
+.preview-trigger { position: relative; isolation: isolate; display: block; width: 100%; overflow: hidden; cursor: zoom-in; }
+.preview-trigger-overlay { position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; pointer-events: none; background: rgb(0 0 0 / 0); transition: background-color 180ms ease; }
+.preview-trigger-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgb(0 0 0 / .7); color: white; opacity: 0; transition: opacity 180ms ease; }
+.preview-trigger:hover .preview-trigger-overlay,
+.preview-trigger:focus-visible .preview-trigger-overlay { background: rgb(0 0 0 / .22); }
+.preview-trigger:hover .preview-trigger-icon,
+.preview-trigger:focus-visible .preview-trigger-icon { opacity: 1; }
+@media (hover: none) {
+  .preview-trigger-icon { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; opacity: 1; }
+  .preview-trigger-icon svg { width: 16px; height: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preview-trigger-overlay, .preview-trigger-icon { transition: none; }
+}
+
+/* A wide laptop can still have limited vertical room for a phone demo. */
+@media (min-width: 48rem) and (max-height: 56.25rem) {
+  .phone-showcase { gap: 12px; }
+  .phone-showcase .phone-showcase-controls { order: 1; }
+  .phone-showcase .phone-showcase-device {
+    order: 3;
+    max-width: min(16rem, calc((70svh - 74px) * var(--phone-ratio)));
+  }
+  .phone-showcase .phone-showcase-caption { order: 2; min-height: 0; }
 }

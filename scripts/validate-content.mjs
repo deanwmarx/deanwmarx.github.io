@@ -20,7 +20,8 @@ function assertUnique(values, label) {
 assertUnique(projects.map(({ id }) => id), 'project IDs')
 
 for (const project of projects) {
-  assertUnique(project.media.map(({ id }) => id), `${project.id} media IDs`)
+  const mediaItems = [...project.media, ...(project.mobileMedia ? [project.mobileMedia] : []), ...(project.showcase?.views ?? [])]
+  assertUnique(mediaItems.map(({ id }) => id), `${project.id} media IDs`)
 
   for (const { href } of project.links) {
     const url = new URL(href)
@@ -29,7 +30,7 @@ for (const project of projects) {
     }
   }
 
-  for (const media of project.media) {
+  for (const media of mediaItems) {
     const imagesRoot = resolve(root, 'public/images')
     const asset = resolve(root, `public${media.src}`)
     const pathFromImages = relative(imagesRoot, asset)
