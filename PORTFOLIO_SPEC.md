@@ -500,3 +500,7 @@ Preview selection fix: disable text selection throughout browser/phone frames, s
 GitHub Pages setup (requested): add a checked build and Pages deployment workflow for portfolio pushes, using Node 24 and publishing only dist/. Deployment permissions are isolated to the deploy job; action revisions are pinned. See docs/DEPLOYMENT.md for Pages settings and environment branch access. Local workflow preparation is complete; no push, merge or publication performed, and hosted workflow/live verification remains pending. This does not complete the broader Phase 5 audit.
 
 Temporarily hide UNAFFI’s Figma designs link; retain its Live site link and all other projects’ links. JSON does not support comments, so remove the entry from active content and retain its restoration URL here: https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012
+
+Mobile project separators: use the same semantic border colour and thin rule as skill groups between adjacent projects below the desktop breakpoint. Apply through the shared list so future projects inherit the separation; no rule before the first or after the last project, and no desktop dividers. Retain existing project padding and scroll offsets.
+
+Mobile project spacing: use 32px bottom padding before each divider and 24px top padding after it, matching the skills grid’s 32px gap and group’s 24px border-to-content inset. Preserve tablet and desktop spacing.

@@ -389,3 +389,7 @@ Header job title: “Frontend Developer | UI/UX Designer”. Keep the existing r
 Preview selection fix: disable text selection throughout browser/phone frames, showcase controls, screenshot triggers and the fullscreen portal, including descendants and WebKit support. Disable native screenshot dragging. Keep double-click zoom, pointer panning, focus and keyboard controls.
 
 Temporarily hide UNAFFI’s Figma designs link; retain its Live site link and all other projects’ links. JSON does not support comments, so remove the entry from active content and retain its restoration URL here: https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012
+
+Mobile project separators: use the same semantic border colour and thin rule as skill groups between adjacent projects below the desktop breakpoint. Apply through the shared list so future projects inherit the separation; no rule before the first or after the last project, and no desktop dividers. Retain existing project padding and scroll offsets.
+
+Mobile project spacing: use 32px bottom padding before each divider and 24px top padding after it, matching the skills grid’s 32px gap and group’s 24px border-to-content inset. Preserve tablet and desktop spacing.

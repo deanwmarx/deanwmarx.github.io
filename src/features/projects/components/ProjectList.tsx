@@ -6,7 +6,7 @@ const templates = { generic: ProjectCard, featured: FeaturedProject }
 
 export function ProjectList({ projects }: { projects: readonly Project[] }) {
   return (
-    <div className="min-w-0">
+    <div className="min-w-0 divide-y divide-border lg:divide-y-0">
       {projects.map((project) => {
         const Template = templates[project.template]
         return <Template key={project.id} project={project} />

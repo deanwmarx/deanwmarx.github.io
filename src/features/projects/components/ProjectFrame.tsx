@@ -7,7 +7,7 @@ type ProjectFrameProps = PropsWithChildren<{ project: Project; className: string
 
 export function ProjectFrame({ project, className, children }: ProjectFrameProps) {
   return (
-    <article id={projectAnchor(project.id)} aria-labelledby={`${project.id}-title`} data-template={project.template} className={`project-anchor min-w-0 py-5 sm:py-8 lg:py-[var(--project-content-inset)] ${className}`}>
+    <article id={projectAnchor(project.id)} aria-labelledby={`${project.id}-title`} data-template={project.template} className={`project-anchor min-w-0 pb-8 pt-6 sm:py-8 lg:py-[var(--project-content-inset)] ${className}`}>
       <ProjectReveal>{children}</ProjectReveal>
     </article>
   )
