@@ -1,0 +1,42 @@
+{
+  "name": "dean-marx-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validate:content": "node scripts/validate-content.mjs",
+    "typecheck": "tsc -b",
+    "lint": "oxlint --deny-warnings",
+    "check": "npm run validate:content && npm run test:content && npm run test:projects && npm run test:scroll && npm run test:theme && npm run test:entrances && npm run lint && npm run typecheck",
+    "build": "npm run validate:content && tsc -b && vite build",
+    "preview": "vite preview",
+    "size": "node scripts/report-bundle-size.mjs",
+    "test:content": "node --test scripts/validate-content.test.mjs",
+    "test:projects": "node --test scripts/project-rendering.test.mjs",
+    "test:scroll": "node --test scripts/scroll.test.mjs",
+    "test:theme": "node --test scripts/theme.test.mjs",
+    "test:entrances": "node --test scripts/section-entry.test.mjs"
+  },
+  "dependencies": {
+    "motion": "^14.6.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "ajv": "^8.20.0",
+    "json-schema-to-ts": "^3.1.1",
+    "oxlint": "^1.88.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4"
+  },
+  "engines": {
+    "node": ">=24.0.0 <25"
+  }
+}

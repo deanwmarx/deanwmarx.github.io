@@ -1,0 +1,155 @@
+@import "tailwindcss" source("../");
+@import "./theme.css";
+
+@layer base {
+  html {
+    background: var(--background);
+    color: var(--secondary-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { margin: 0; min-width: 0; }
+
+  a, button { -webkit-tap-highlight-color: transparent; }
+  button { cursor: pointer; }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .project-nav-static, .project-nav-static .project-navigator { position: static; }
+  @media (min-width: 80rem) and (prefers-reduced-motion: no-preference) {
+    .featured-scene { position: sticky; top: 7rem; align-self: start; }
+  }
+  .site-header {
+    position: relative;
+    z-index: 40;
+    background: var(--background);
+  }
+
+  .hero-title { font-size: clamp(2.65rem, 5.1vw, 5rem); line-height: 1.03; }
+  .section-title { font-size: clamp(1.9rem, 3.3vw, 2.75rem); line-height: 1.12; font-weight: 700; letter-spacing: -0.045em; color: var(--foreground); }
+  .section-label { font-size: 0.75rem; font-weight: 600; color: var(--primary); }
+  .section-anchor { scroll-margin-top: 2rem; }
+  .project-anchor { scroll-margin-top: 6rem; }
+  .project-nav-slot { position: sticky; top: 0; z-index: 20; align-self: start; }
+
+  @media (min-width: 48rem) {
+    .site-header { position: sticky; top: 0; }
+    .section-anchor { scroll-margin-top: 7rem; }
+    .project-nav-slot { top: 5.5rem; }
+    .project-anchor { scroll-margin-top: 12rem; }
+  }
+
+  @media (min-width: 64rem) {
+    .project-nav-slot { position: relative; top: auto; z-index: 10; align-self: stretch; }
+    .project-navigator { position: sticky; top: calc(var(--story-header) + var(--project-content-inset)); }
+    .project-anchor { scroll-margin-top: 7rem; }
+  }
+
+  .skip-link {
+    position: fixed;
+    inset: 1rem auto auto 1rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .skip-link:focus { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .motion-reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* Viewport chapters use native scroll snap; oversized chapters remain scrollable. */
+@layer components {
+  html { --story-header: 0px; --project-content-inset: 3.5rem; }
+  html.story-snap { scroll-snap-type: y mandatory; scroll-padding-top: var(--story-header); }
+  .story-hero, .project-anchor, #skills { scroll-snap-align: start; scroll-margin-top: 0; }
+  .story-hero, .project-anchor { min-height: calc(100svh - var(--story-header)); box-sizing: border-box; }
+  .project-anchor { align-content: start; scroll-snap-stop: always; }
+  .story-work { scroll-margin-top: var(--story-header); }
+  .story-work-heading { padding-block: 1.5rem; }
+  .featured-scene { position: static; }
+  @media (min-width: 48rem) { html { --story-header: 5.5rem; } }
+  @media (min-width: 64rem) {
+    .story-work-heading { position: absolute; top: 1.5rem; left: 10rem; right: 0; z-index: 1; padding: 0; }
+    .project-anchor:first-child { --project-content-inset: 7rem; }
+    .project-nav-slot { padding-top: 7rem; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.story-snap { scroll-snap-type: none; }
+}
+
+/* Wheel navigation owns chapter easing. Native re-snapping would jump when
+   returning from free-scrolling Skills, or when interrupting a transition. */
+@media (hover: hover) and (pointer: fine) {
+  html.story-snap { scroll-snap-type: none; }
+}
+
+html.story-snap.wheel-story { scroll-snap-type: none; }
+
+@layer components {
+  @media (max-width: 63.999rem) {
+    .project-anchor {
+      scroll-margin-top: calc(var(--project-strip-height, 4rem) + 0.25rem);
+      min-height: calc(100svh - var(--story-header) - var(--project-strip-height, 4rem) - 0.25rem);
+    }
+  }
+}
+
+@layer components {
+  @media (max-width: 47.999rem) {
+    /* Header and hero share the first chapter; its snap destination is page top. */
+    .story-hero {
+      min-height: calc(100svh - var(--intro-header-height, 5.5rem));
+      scroll-margin-top: var(--intro-header-height, 5.5rem);
+    }
+  }
+}
+
+@layer components {
+  /* The introduction, not the first article, is the entry stop into Work. */
+  .story-work-heading { scroll-snap-align: start; scroll-snap-stop: always; }
+  .project-anchor:first-child { scroll-snap-align: none; }
+  @media (min-width: 64rem) {
+    .story-work-heading { scroll-margin-top: 1.5rem; }
+  }
+}
+
+/* Touch/mobile reading is free scrolling; only explicit links animate. */
+@media (max-width: 63.999rem), (hover: none), (pointer: coarse) {
+  html.story-snap { scroll-snap-type: none; }
+}
+
+@layer components {
+  .skills-group { transition: transform 220ms ease, border-color 220ms ease; }
+  .skills-icon { transition: transform 280ms cubic-bezier(.2,.8,.2,1); }
+  .skill-name { transition: color 180ms ease; }
+  @media (hover: hover) and (pointer: fine) {
+    .skills-group:hover { border-color: var(--primary); }
+    .skill-row:hover .skill-name { color: var(--primary); }
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .motion-reveal[data-settled="true"] .skills-group:hover { transform: translateY(-4px); }
+    .motion-reveal[data-settled="true"] .skills-group:hover .skills-icon { transform: rotate(-6deg) scale(1.12); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skills-group, .skills-icon, .skill-name { transition: none; }
+}

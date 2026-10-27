@@ -1,0 +1,150 @@
+/* Raw CV palette stays private; components use semantic colour roles. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --palette-neutral-25: #FFFFFF;
+  --palette-blue-50: #ECF9FF;
+  --palette-blue-100: #D4F2FF;
+  --palette-blue-200: #B2E9FF;
+  --palette-blue-300: #7DDDFF;
+  --palette-blue-400: #40C8FF;
+  --palette-blue-500: #14ACFF;
+  --palette-blue-600: #0094FF;
+  --palette-blue-700: #0087FF;
+  --palette-blue-800: #0066CC;
+  --palette-blue-900: #0858A0;
+  --palette-blue-950: #0A3561;
+  --palette-slate-50: #F3F8FC;
+  --palette-slate-100: #E7EFF7;
+  --palette-slate-200: #C9DFEE;
+  --palette-slate-300: #9AC4DF;
+  --palette-slate-400: #64A5CC;
+  --palette-slate-500: #408AB7;
+  --palette-slate-600: #2F6E9A;
+  --palette-slate-700: #27587D;
+  --palette-slate-800: #244B68;
+  --palette-slate-900: #224058;
+  --palette-slate-950: #0B141C;
+  --palette-amber-50: #FFFAEA;
+  --palette-amber-100: #FFF2C4;
+  --palette-amber-200: #FFE484;
+  --palette-amber-300: #FFD044;
+  --palette-amber-400: #FFBB19;
+  --palette-amber-500: #FF9C00;
+  --palette-amber-600: #E47700;
+  --palette-amber-700: #AF4900;
+  --palette-amber-800: #993C07;
+  --palette-amber-900: #7E3209;
+  --palette-amber-950: #481800;
+  --palette-neutral-50: #F6F8F9;
+  --palette-neutral-100: #F1F3F5;
+  --palette-neutral-200: #D6DCE1;
+  --palette-neutral-300: #B1BEC8;
+  --palette-neutral-400: #879BA9;
+  --palette-neutral-500: #687F8F;
+  --palette-neutral-600: #536776;
+  --palette-neutral-700: #445360;
+  --palette-neutral-800: #3B4751;
+  --palette-neutral-900: #343E46;
+  --palette-neutral-950: #23282E;
+  --palette-success-50: #f1fcf3;
+  --palette-success-100: #defae6;
+  --palette-success-200: #bff3cd;
+  --palette-success-300: #8ce9a8;
+  --palette-success-400: #2cbb57;
+  --palette-success-500: #10b981;
+  --palette-success-600: #1f9a43;
+  --palette-success-700: #1b7a38;
+  --palette-success-800: #1b6030;
+  --palette-success-900: #184f2a;
+  --palette-success-950: #072c13;
+  --palette-warning-50: #fff8eb;
+  --palette-warning-100: #ffebc6;
+  --palette-warning-200: #ffcd70;
+  --palette-warning-300: #ffba4a;
+  --palette-warning-400: #ffa020;
+  --palette-warning-500: #f97b07;
+  --palette-warning-600: #dd5602;
+  --palette-warning-700: #b73906;
+  --palette-warning-800: #942b0c;
+  --palette-warning-900: #7a240d;
+  --palette-warning-950: #461002;
+  --palette-danger-50: #fef2f2;
+  --palette-danger-100: #fee2e2;
+  --palette-danger-200: #fecaca;
+  --palette-danger-300: #fca5a5;
+  --palette-danger-400: #f87171;
+  --palette-danger-500: #f04848;
+  --palette-danger-600: #dd2525;
+  --palette-danger-700: #ba1b1b;
+  --palette-danger-800: #991b1b;
+  --palette-danger-900: #7f1d1d;
+  --palette-danger-950: #450a0a;
+
+  --background: var(--palette-neutral-25);
+  --foreground: var(--palette-slate-950);
+  --card: var(--palette-neutral-25);
+  --card-foreground: var(--palette-slate-950);
+  --muted: var(--palette-neutral-50);
+  --muted-foreground: var(--palette-neutral-600);
+  --border: var(--palette-neutral-200);
+  --input: var(--palette-neutral-200);
+  --ring: var(--palette-blue-800);
+  --primary: var(--palette-blue-800);
+  --primary-foreground: #FFFFFF;
+  --primary-hover: var(--palette-blue-900);
+  --secondary: var(--palette-neutral-100);
+  --secondary-foreground: var(--palette-neutral-800);
+  --accent: var(--palette-blue-50);
+  --accent-foreground: var(--palette-blue-900);
+  --accent-border: var(--palette-blue-200);
+  color-scheme: light;
+}
+
+.dark {
+  --background: #101216;
+  --foreground: #F1F3F5;
+  --card: #191D23;
+  --card-foreground: #F1F3F5;
+  --muted: #20252D;
+  --muted-foreground: #B1BEC8;
+  --border: #343B46;
+  --input: #44505F;
+  --ring: #40A6FF;
+  --primary: #40A6FF;
+  --primary-foreground: #08121F;
+  --primary-hover: #7DBFFF;
+  --secondary: #242B34;
+  --secondary-foreground: #D6DCE1;
+  --accent: #152536;
+  --accent-foreground: #9ACDFF;
+  --accent-border: #284D70;
+  color-scheme: dark;
+}
+
+@theme {
+  --color-*: initial;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-border: var(--accent-border);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+}

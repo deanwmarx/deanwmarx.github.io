@@ -1,0 +1,104 @@
+[
+  {
+    "id": "unaffi",
+    "template": "featured",
+    "title": "UNAFFI",
+    "headline": "Find opportunities to play. Manage the business behind them.",
+    "summary": "A sports platform connecting people with facilities and activities, while giving businesses the tools to manage listings, schedules, bookings, memberships, and payments. People can discover and book sporting opportunities, or organise free community activities for others to join.",
+    "role": "Product design & frontend development",
+    "stack": [
+      "Svelte",
+      "SvelteKit",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mailgun",
+      "Capacitor"
+    ],
+    "links": [
+      {
+        "label": "Live site",
+        "href": "https://sport.unaffi.com"
+      },
+      {
+        "label": "Figma designs",
+        "href": "https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Discover & play",
+        "description": "Find facilities, book and pay, or join community activities."
+      },
+      {
+        "title": "Manage your business",
+        "description": "Manage listings, schedules, bookings, memberships, and payments."
+      }
+    ],
+    "supportingText": "Anyone can organise free community activities. Memberships can include service benefits such as free court bookings.",
+    "media": []
+  },
+  {
+    "id": "fimo",
+    "template": "generic",
+    "title": "FIMO Polymer Clay Colour Recipe Generator",
+    "navigationLabel": "FIMO",
+    "headline": "From colour inspiration to a precise mixing recipe.",
+    "summary": "Turns the FIMO True Colours mixing guide into a personalised recipe card. Choose a target colour and total clay weight to get precise mixing quantities\u2014removing manual calculations and guesswork, and helping creators reduce waste.",
+    "stack": [
+      "Svelte",
+      "Tailwind CSS",
+      "html2canvas-pro"
+    ],
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/deanwmarx/clay-color-recipe-generator"
+      }
+    ],
+    "highlights": [],
+    "media": []
+  },
+  {
+    "id": "budgit",
+    "template": "generic",
+    "title": "Budgit",
+    "status": "Open-source personal project",
+    "headline": "A clearer picture of household spending and savings.",
+    "summary": "A personal finance app built around how I manage household money. It categorises income and expenses, tracks monthly budgets, and compares projected savings with actual savings after unexpected costs.",
+    "stack": [
+      "Svelte",
+      "SvelteKit",
+      "Tailwind CSS",
+      "Capacitor",
+      "SQLite"
+    ],
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/deanwmarx/budgit"
+      },
+      {
+        "label": "Figma designs",
+        "href": "https://www.figma.com/design/yOLCinkrjXvY4SLYxelc73/Budgit?node-id=2-625"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "Multiple households",
+        "description": "Manage households with multiple contributing members."
+      },
+      {
+        "title": "Flexible budget cycles",
+        "description": "Set the start day and warning/danger thresholds for each household."
+      },
+      {
+        "title": "Backup & restore",
+        "description": "Local and Google Drive backup and restore of household data."
+      }
+    ],
+    "supportingText": "Built for my own household finances, and open source for anyone who wants to adapt it to theirs.",
+    "media": []
+  }
+]
