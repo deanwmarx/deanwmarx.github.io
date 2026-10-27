@@ -87,7 +87,7 @@ test('project external links open in new tabs with safe relationships and a read
   }
 })
 
-test('Little Clay Things is in development with source, designs and a gated preview', () => {
+test('Little Clay Things is in development with designs and a gated preview', () => {
   const project = original.find(project => project.id === 'little-clay-things')
   assert.ok(project)
   const html = render([project])
@@ -95,7 +95,7 @@ test('Little Clay Things is in development with source, designs and a gated prev
   assert.match(html, /Preview \(password required\)/)
   assert.match(html, /Ask me for the password to access the preview/ )
   assert.match(html, /Shopify Liquid/)
-  assert.match(html, /little-clay-things-theme/)
+  assert.doesNotMatch(html, /little-clay-things-theme/)
   assert.doesNotMatch(html, /Live site/)
 })
 
