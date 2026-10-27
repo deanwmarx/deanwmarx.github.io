@@ -496,3 +496,5 @@ Desktop footer spacing: remove the additional footer top margin and reduce skill
 Header job title: “Frontend Developer | UI/UX Designer”. Keep the existing responsive header presentation.
 
 Preview selection fix: disable text selection throughout browser/phone frames, showcase controls, screenshot triggers and the fullscreen portal, including descendants and WebKit support. Disable native screenshot dragging. Keep double-click zoom, pointer panning, focus and keyboard controls.
+
+GitHub Pages setup (requested): add a checked build and Pages deployment workflow for portfolio pushes, using Node 24 and publishing only dist/. Deployment permissions are isolated to the deploy job; action revisions are pinned. See docs/DEPLOYMENT.md for Pages settings and environment branch access. Local workflow preparation is complete; no push, merge or publication performed, and hosted workflow/live verification remains pending. This does not complete the broader Phase 5 audit.
