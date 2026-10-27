@@ -498,3 +498,5 @@ Header job title: “Frontend Developer | UI/UX Designer”. Keep the existing r
 Preview selection fix: disable text selection throughout browser/phone frames, showcase controls, screenshot triggers and the fullscreen portal, including descendants and WebKit support. Disable native screenshot dragging. Keep double-click zoom, pointer panning, focus and keyboard controls.
 
 GitHub Pages setup (requested): add a checked build and Pages deployment workflow for portfolio pushes, using Node 24 and publishing only dist/. Deployment permissions are isolated to the deploy job; action revisions are pinned. See docs/DEPLOYMENT.md for Pages settings and environment branch access. Local workflow preparation is complete; no push, merge or publication performed, and hosted workflow/live verification remains pending. This does not complete the broader Phase 5 audit.
+
+Temporarily hide UNAFFI’s Figma designs link; retain its Live site link and all other projects’ links. JSON does not support comments, so remove the entry from active content and retain its restoration URL here: https://www.figma.com/design/JBJeWjlsVfhJgrkoazlcdz/UNAFFI---Design-Library?node-id=591-54012

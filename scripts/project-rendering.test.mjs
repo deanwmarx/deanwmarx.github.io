@@ -50,7 +50,8 @@ test('featured capabilities retain both discovery and business management withou
   const html = render([original[0]])
   assert.match(html, /Discover &amp; play/)
   assert.match(html, /Manage your business/)
-  assert.match(html, /Figma designs/)
+  assert.doesNotMatch(html, /Figma designs/)
+  assert.match(html, /Live site/)
   assert.doesNotMatch(html, /Understand the complexity|Simplify the journey|Build and improve/)
 })
 
